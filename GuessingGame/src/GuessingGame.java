@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.lang.Math;
 import java.util.Scanner;
 public class GuessingGame {
 
@@ -11,26 +12,30 @@ public class GuessingGame {
 		int x = input.nextInt();
 		System.out.println("That's great! But let's try guessing what my age is!");
 		int age = (int)(Math.random() * 10 + 1);
-		int guess = input.nextInt();
+		System.out.println(age);
+		int guess = -1;
 		while(guess != age)
 		{
-			boolean isNumber = false;
-			while(!isNumber)
+			try
 			{
-				try
+				System.out.println("What is my age?");
+				guess = input.nextInt();
 				{
-					System.out.println("What is my age?");
-					isNumber = true;
-				}
-				catch(InputMismatchException e)
-				{
-					System.out.println("This was an error" + e);
+					if(guess == age)
+					{
+						System.out.println("Yes, that is my age");
+					}
+					else
+					{
+						System.out.println("No, that is not my age, try again");
+					}
 				}
 			}
-			if(isNumber == true)
+			catch(InputMismatchException e)
 			{
-				System.out.println("Yes, my age is" + " " + age);
-			}
+				System.out.println("No, that is not a number. Please try again.");
+				input.nextLine();
+			}	
 		}
 		
 	}
