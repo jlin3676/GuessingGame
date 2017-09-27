@@ -2,9 +2,9 @@ import java.util.InputMismatchException;
 import java.lang.Math;
 import java.util.Scanner;
 public class GuessingGame {
-
+// Jacky Lin
 	public static void main(String[]args)
-	{
+	{	
 		Scanner input = new Scanner(System.in);
 		System.out.println("What is your name?");
 		String s = input.next();
@@ -14,6 +14,7 @@ public class GuessingGame {
 		int age = (int)(Math.random() * 10 + 1);
 		System.out.println(age);
 		int guess = -1;
+		int count = 0;
 		while(guess != age)
 		{
 			try
@@ -23,11 +24,11 @@ public class GuessingGame {
 				{
 					if(guess == age)
 					{
-						System.out.println("Yes, that is my age");
+						System.out.println("Yes, that is my age. It took you " + count + " tries");
 					}
 					else
 					{
-						System.out.println("No, that is not my age, try again");
+						System.out.println("No, that is not my age, try again.");
 					}
 				}
 			}
